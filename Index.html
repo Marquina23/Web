@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Informacion/styles.css">
+    <link rel="stylesheet" href="Index.css">
+    <link rel="stylesheet" href="Informacion/assets/css/styles.css">
+    <title>Hotel Paraíso del Pacífico</title>
+
+    <style>
+        .scrollToTop {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 50px;
+        height: 50px;
+        background-color: #B68F61;
+        color: white;
+        text-align: center;
+        line-height: 1.5;
+        border-radius: 2px;
+        border-color: #FEA116;
+        font-size: 30px;
+        vertical-align: middle;
+        cursor: pointer;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transition: opacity 0.4s ease, transform 0.4s ease;
+        transform: scale(0);
+    }
+
+    .scrollToTop.visible {
+        opacity: 1;
+        transform: scale(1);
+    }
+    </style>
+</head>
+<body>
+    <div class="menu">
+        <ion-icon name="menu-outline"></ion-icon>
+        <ion-icon name="close-outline"></ion-icon>
+    </div>
+
+    <div class="barra-lateral">
+        <div>
+            <div class="nombre-pagina">
+            <a href="Index.html"><ion-icon name="business-sharp" id="cloud"></ion-icon></a>
+                <a href="Index.html"><span>Inicio</span></a>
+            </div>
+    
+        </div>
+
+        <nav class="navegacion">
+            <ul>
+                <li>
+                    <a id="inbox" href="Habitaciones/Html/Habitaciones.html">
+                       <ion-icon name="home"></ion-icon>
+                        <span>Habitaciones</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="servicios/servicios.html">
+                        <ion-icon name="call-sharp"></ion-icon>
+                        <span>Servicios</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="areas/areas.html">
+                        <ion-icon name="grid"></ion-icon>
+                        <span>Areas recreativas</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="Eventos/eventos.html">
+                        <ion-icon name="heart-sharp"></ion-icon>
+                        <span>Eventos</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="publicidad/publicidad.html">
+                        <ion-icon name="receipt"></ion-icon>
+                        <span>Ofertas Especiales</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="Reseñas/Reseñas.html">
+                        <ion-icon name="chatbubbles-sharp"></ion-icon>
+                        <span>Reseñas</span> 
+                    </a>
+                </li>
+                <li>
+                    <a href="Chat/Chat.html">
+                        <ion-icon name="location-sharp"></ion-icon>
+                        <span>Ubicación</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <div>
+            <div class="linea"></div>
+
+            <div class="modo-oscuro">
+                <div class="info">
+                    <ion-icon name="moon-outline"></ion-icon>
+                    <span>Modo Oscuro</span>
+                </div>
+                <div class="switch">
+                    <div class="base">
+                        <div class="circulo">
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <video autoplay loop muted>
+        <source src="Inicio.mp4" type="video/mp4">
+        Tu navegador no soporta el elemento de video.
+    </video>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script> 
+        
+const cloud = document.getElementById("cloud");
+const barraLateral = document.querySelector(".barra-lateral");
+const spans = document.querySelectorAll("span");
+const palanca = document.querySelector(".switch");
+const circulo = document.querySelector(".circulo");
+const menu = document.querySelector(".menu");
+const main = document.querySelector("main");
+
+menu.addEventListener("click",()=>{
+    barraLateral.classList.toggle("max-barra-lateral");
+    if(barraLateral.classList.contains("max-barra-lateral")){
+        menu.children[0].style.display = "none";
+        menu.children[1].style.display = "block";
+    }
+    else{
+        menu.children[0].style.display = "block";
+        menu.children[1].style.display = "none";
+    }
+    if(window.innerWidth<=320){
+        barraLateral.classList.add("mini-barra-lateral");
+        main.classList.add("min-main");
+        spans.forEach((span)=>{
+            span.classList.add("oculto");
+        })
+    }
+});
+
+palanca.addEventListener("click",()=>{
+    let body = document.body;
+    body.classList.toggle("dark-mode");
+    body.classList.toggle("");
+    circulo.classList.toggle("prendido");
+});
+
+cloud.addEventListener("click",()=>{
+    barraLateral.classList.toggle("mini-barra-lateral");
+    main.classList.toggle("min-main");
+    spans.forEach((span)=>{
+        span.classList.toggle("oculto");
+    });
+});
+    </script>
+    <script>
+        // Este script es opcional, pero puedes agregar lógica adicional aquí si es necesario
+        const video = document.querySelector('video');
+        video.onended = function() {
+            video.currentTime = 0; // Reinicia el video al final
+            video.play(); // Reproduce el video de nuevo
+        };
+    </script>
+  
+<div style="padding-left: 20%; font-size: 20px; width: 100%; padding-right: 10px;">
+    <br><h3 style="color: #B68F61; padding-left: 30%;">Bienvenidos al Hotel Paraíso del Pacífico.</h3><br>
+    <p style="font-family: 'Outfit', sans-serif;">
+        ¡Estamos ansiosos por darte la bienvenida y hacer de tu estancia un verdadero paraíso!
+        Ven y disfruta de vistas impresionantes al océano, un servicio impecable y una variedad de comodidades
+        diseñadas para hacer de tu estancia una experiencia inolvidable.
+    </p>
+</div><br>
+
+<div class="card">
+    <div class="face front">
+        <img src="Imagenes/pe.jfif" alt="">
+        <h3>SOBRE NOSOTROS</h3>
+    </div>
+    <div class="face back">
+        <h3>SOBRE NOSOTROS</h3><br>
+           <p>Hotel Paraíso del Pacífico es la elección élite para poder descansar del ruido de la ciudad, 
+            alrededor de un ambiente de relajación y tranquilidad.</p><br>
+           <p> Nuestro paraíso tropical es una experiencia inolvidable donde encontrarás todo lo que necesitas.
+            estamos ubicados en boulevard Costa del Sol, kilometro 56 ½, San Luis La Herradura, departamento de La Paz. 
+            Ubicado a 45 minutos de San Salvador y a 20 minutos del Aeropuerto Internacional San Arnulfo Romero.</p><br>
+            <p>Operando desde 2018, hasta la fecha contamos con 125 habitaciones, siendo el que posee mayor capacidad para alojar familias en la Costa del Sol. 
+           </p>
+        <div class="link">
+            <a href="#"></a>
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <div class="face front">
+        <img src="Imagenes/m1.jfif" alt="">
+        <h3>HOTEL PARAÍSO DEL PACÍFICO</h3>
+    </div>
+    <div class="face back">
+        <h3>HOTEL PARAÍSO DEL PACÍFICO</h3><br>
+        <h3>Misión</h3><br>
+           <p>Somos Hotel Paraíso del Pacífico dedicados a la prestación de servicios de
+            alojamiento, alimentos y bebidas y demás servicios
+            complementarios brindando altos estándares de calidad
+            y óptima atención; contando con un equipo humano
+            altamente calificado y comprometido con los valores de
+            la organización.</p>
+
+            <h3>Visión</h3><br>
+            <p>Ser una cadena de hoteles "Paraíso del Pacífico", con grandes puntos de calidad
+                destacando nuestra gastronomía interna en el resturante "Coral de Fuego" y el bar "Sol de Noche"
+                vendiendo el tema de la experiencia desde la reservación, hasta el hospedaje.</p>               
+
+        <div class="link">
+            <a href="#"></a>
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <div class="face front">
+        <img src="Imagenes/pa.jfif" alt="">
+        <h3>NUESTROS SERVICIOS</h3>
+    </div>
+    <div class="face back">
+        <h3>NUESTROS SERVICIOS</h3><br>
+        
+            <p>125 Habitaciones</p>
+           <p>3 suites de lujos</p> 
+            <p>Salón Perla de Luna</p>
+            <p>3 Piscinas</p>
+            <p>Zonas de Jardines</p>
+            <p>Gimnasio</p>
+            <p>Salón de Lectura</p>
+            <p>Bar "El Sol de Medianoche"</p> 
+            <p>Restaurante "Coral de Fuego"</p>
+            <p>Servicio de Transporte</p>           
+    
+        <div class="link">
+            <a href="#"></a>
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <div class="face front">
+        <img src="Imagenes/m2.jfif" alt="">
+        <h3>CONDICIONES Y SERVICIOS</h3>
+    </div>
+    <div class="face back">
+        <h3>CONDICIONES Y SERVICIOS</h3><br>
+        
+            <P>Por norma general la hora de entrada al hotel es a las 3:00 pm y la hora de salida
+                de las habitaciones es a las 12:00 pm, el cliente que realice Check out podrá
+                disfrutar de su almuerzo a partir de las 11 : 30 am, para poder dar cumplimiento al
+                horario de su salida.</P>
+
+                <P>Las cotizaciones generadas muestran disponibilidad y valores en el momento de su
+                emisión.</P>  
+                <P>Se entregarán las habitaciones a partir de las 3:00 pm. presentando los
+                    documentos de identidad por las personas que vayan a realizar el Check-In. </P>       
+    
+        <div class="link">
+            <a href="#"></a>
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <div class="face front">
+        <img src="Imagenes/m3.jfif" alt="">
+        <h3>POLITICA INTEGRAL</h3>
+    </div>
+    <div class="face back">
+        <h3>POLITICA INTEGRAL DE CALIDAD, AMBIENTE, SEGURIDAD Y SALUD.</h3><br>
+           <p>Hotel Paraíso del Pacífico tiene el compromiso de
+            lograr la mayor satisfacción en sus clientes y huéspedes, brindando
+            experiencias únicas e inolvidables, garantizando la seguridad de sus
+            colaboradores, proveedores, contratistas, clientes y huéspedes,
+            por medio del diseño e implementación de un sistema integrado de
+            gestión, basado en la normatividad nacional e internacional ISO.</p>
+        <div class="link">
+            <a href="#"></a>
+        </div>
+    </div>
+</div>
+
+
+<div class="card">
+    <div class="face front">
+        <img src="Imagenes/pi.jfif" alt="">
+        <h3>UN TESORO EN LAS COSTAS</h3>
+    </div>
+    <div class="face back">
+        <h3>UN TESORO EN LAS COSTAS DEL SOL</h3>
+        <p>Con una playa privada de más de 300 metros, el Hotel cuenta con aproximadamente 8 manzanas de extensión, 
+            que brindan a todos los turistas el más amplio y seguro lugar para disfrutar de sus vacaciones.</p>
+        <div class="link">
+            <a href="#"></a>
+        </div>
+    </div>
+</div>
+
+<div style="padding-left: 20%; font-size: 20px; width: 100%; padding-right: 10px;">
+    <br><hr color="#B68F61" style="height: 5px;"><br>
+    <p>
+        En el Hotel Paraíso del Pacífico, te invitamos a disfrutar de una experiencia culinaria inigualable en nuestro elegante restaurante,
+        relajarte con una bebida exquisita en nuestro sofisticado bar y celebrar tus eventos más importantes en nuestro versátil salón para eventos.
+    </p>
+</div>
+
+  <div class="container">
+     <div class="card__container">
+        <article class="card__article">
+           <img src="Imagenes/1.jfif" alt="image" class="card__img">
+
+           <div class="card__data">
+              <span class="card__description"></span>
+              <h2 class="card__title">Salón Perla de Luna</h2>
+              <a href="#" class="card__button"></a>
+           </div>
+        </article>
+
+        <article class="card__article">
+           <img src="Imagenes/2.jfif" alt="image" class="card__img">
+
+           <div class="card__data">
+              <span class="card__description"></span>
+              <h2 class="card__title">Restaurante Coral de Fuego</h2>
+              <a href="#" class="card__button"></a>
+           </div>
+        </article>
+
+        <article class="card__article">
+            <img src="Imagenes/3.jfif" alt="image" class="card__img">
+
+            <div class="card__data">
+               <span class="card__description"></span>
+               <h2 class="card__title">Bar El Sol de Medianoche</h2>
+               <a href="#" class="card__button"></a>
+
+            </div>
+         </article>   
+
+        
+        <!-- Botón de Flecha -->
+  <div id="scrollToTop" class="scrollToTop">
+    &#8593;
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+var scrollToTopBtn = document.getElementById('scrollToTop');
+
+window.addEventListener('scroll', function() {
+    if (window.scrollY > 300) {
+        scrollToTopBtn.classList.add('visible');
+    } else {
+        scrollToTopBtn.classList.remove('visible');
+    }
+});
+scrollToTopBtn.addEventListener('click', function() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});
+});
+
+</script>
+
+</body>
+</html>

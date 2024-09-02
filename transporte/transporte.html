@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../Index.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <title>formulario</title>
+    <style>
+        html,
+        body {
+      position: relative;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    
+        
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+           
+        }
+        h1, h3 {
+            text-align: center;
+            color: #b68f61;
+            font-size: 25px;
+        }
+        
+        fieldset {
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        legend {
+            font-weight: bold;
+            padding: 0 10px;
+            color: #B68F61;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: #555;
+        }
+        input[type="text"],
+        input[type="tel"],
+        input[type="email"],
+        input[type="time"],
+        textarea,
+
+        select {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group input[type="submit"] {
+            background-color: #B68F61;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .form-group input[type="submit"]:hover {
+            background-color: #8596a8;
+        }
+
+        .scrollToTop {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 50px;
+        height: 50px;
+        background-color: #B68F61;
+        color: white;
+        text-align: center;
+        line-height: 1.5;
+        border-radius: 2px;
+        border-color: #FEA116;
+        font-size: 30px;
+        vertical-align: middle;
+        cursor: pointer;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transition: opacity 0.4s ease, transform 0.4s ease;
+        transform: scale(0);
+    }
+
+    .scrollToTop.visible {
+        opacity: 1;
+        transform: scale(1);
+    }
+    .para {
+            font-size: 18px;
+            line-height: 1.5;
+            background-color: #fff;
+            padding-bottom: 5%;
+            padding-left: 10px;
+            padding-right: 10px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: justify;
+            width: 100%;
+        }
+        .todo{
+            padding-left: 19%;
+        }
+        .incluir{
+            padding-left: 20%;
+        }
+
+    </style>
+     
+</head>
+<body>
+    <div class="menu">
+        <ion-icon name="menu-outline"></ion-icon>
+        <ion-icon name="close-outline"></ion-icon>
+    </div>
+
+    <div class="barra-lateral">
+        <div>
+            <div class="nombre-pagina">
+            <a href="../Index.html"><ion-icon name="business-sharp" id="cloud"></ion-icon></a>
+                <a href="../Index.html"><span>Inicio</span></a>
+            </div>
+    
+        </div>
+
+        <nav class="navegacion">
+            <ul>
+                <li>
+                    <a id="inbox" href="../Habitaciones/Html/Habitaciones.html">
+                       <ion-icon name="home"></ion-icon>
+                        <span>Habitaciones</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="../servicios/servicios.html">
+                        <ion-icon name="call-sharp"></ion-icon>
+                        <span>Servicios</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="../areas/areas.html">
+                        <ion-icon name="grid"></ion-icon>
+                        <span>Areas recreativas</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="../Eventos/eventos.html">
+                        <ion-icon name="heart-sharp"></ion-icon>
+                        <span>Eventos</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="../publicidad/publicidad.html">
+                        <ion-icon name="receipt"></ion-icon>
+                        <span>Ofertas Especiales</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="../Reseñas/Reseñas.html">
+                        <ion-icon name="chatbubbles-sharp"></ion-icon>
+                        <span>Reseñas</span> 
+                    </a>
+                </li>
+                <li>
+                    <a href="../Chat/Chat.html">
+                        <ion-icon name="location-sharp"></ion-icon>
+                        <span>Ubicación</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <div>
+            <div class="linea"></div>
+
+            <div class="modo-oscuro">
+                <div class="info">
+                    <ion-icon name="moon-outline"></ion-icon>
+                    <span>Modo Oscuro</span>
+                </div>
+                <div class="switch">
+                    <div class="base">
+                        <div class="circulo">
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script> 
+        
+const cloud = document.getElementById("cloud");
+const barraLateral = document.querySelector(".barra-lateral");
+const spans = document.querySelectorAll("span");
+const palanca = document.querySelector(".switch");
+const circulo = document.querySelector(".circulo");
+const menu = document.querySelector(".menu");
+const main = document.querySelector("main");
+
+menu.addEventListener("click",()=>{
+    barraLateral.classList.toggle("max-barra-lateral");
+    if(barraLateral.classList.contains("max-barra-lateral")){
+        menu.children[0].style.display = "none";
+        menu.children[1].style.display = "block";
+    }
+    else{
+        menu.children[0].style.display = "block";
+        menu.children[1].style.display = "none";
+    }
+    if(window.innerWidth<=320){
+        barraLateral.classList.add("mini-barra-lateral");
+        main.classList.add("min-main");
+        spans.forEach((span)=>{
+            span.classList.add("oculto");
+        })
+    }
+});
+
+palanca.addEventListener("click",()=>{
+    let body = document.body;
+    body.classList.toggle("dark-mode");
+    body.classList.toggle("");
+    circulo.classList.toggle("prendido");
+});
+
+cloud.addEventListener("click",()=>{
+    barraLateral.classList.toggle("mini-barra-lateral");
+    main.classList.toggle("min-main");
+    spans.forEach((span)=>{
+        span.classList.toggle("oculto");
+    });
+});
+    </script>
+    <script>
+        // Este script es opcional, pero puedes agregar lógica adicional aquí si es necesario
+        const video = document.querySelector('video');
+        video.onended = function() {
+            video.currentTime = 0; // Reinicia el video al final
+            video.play(); // Reproduce el video de nuevo
+        };
+    </script>
+
+
+
+<div class="todo">  
+    <div class="para">
+   <br> <h3>Servicio de transporte</h3><br>
+    <p>Experimente la comodidad y el lujo desde el momento en que llega con nuestro exclusivo servicio de transporte.
+        Ofrecemos traslados privados en vehículos de alta gama, garantizando una llegada relajada y sin estrés al hotel.
+        Nuestros choferes profesionales se encargan de cada detalle para que usted disfrute de un viaje placentero y personalizado.
+        Deje atrás las preocupaciones del tráfico y el estacionamiento y confíe en nosotros para un viaje sin complicaciones.
+    </p>
+    </div>
+</div>
+
+
+ <!-- Swiper -->
+
+ <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" class="swiper mySwiper2">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <img src="pi1.jpg" />
+      </div>
+      <div class="swiper-slide">
+        <img src="pi10.jpg"  style="height: auto;"/>
+      </div>
+      <div class="swiper-slide">
+        <img src="pi4.webp"  style="height: auto;"/>
+      </div>
+      <div class="swiper-slide">
+        <img src="pi2.jpg" style="height: auto;"/>
+      </div>
+      <div class="swiper-slide">
+        <img src="pi3.jpg" style="height: auto;"/>
+      </div>
+      <div class="swiper-slide">
+        <img src="pi5.webp" style="height: auto;"/>
+      </div>
+      <div class="swiper-slide">
+        <img src="pi7.avif" style="height: auto;"/>
+      </div>
+      <div class="swiper-slide">
+        <img src="pi8.webp" style="height: auto;"/>
+      </div>
+    </div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+  </div>
+  <div thumbsSlider="" class="swiper mySwiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <img src="pi1.jpg" />
+      </div>
+      <div class="swiper-slide">
+        <img src="pi10.jpg" />
+      </div>
+      <div class="swiper-slide">
+        <img src="pi4.webp" />
+      </div>
+      <div class="swiper-slide">
+        <img src="pi2.jpg" />
+      </div>
+      <div class="swiper-slide">
+        <img src="pi3.jpg" />
+      </div>
+      <div class="swiper-slide">
+        <img src="pi5.webp" />
+      </div>
+      <div class="swiper-slide">
+        <img src="pi7.avif" />
+      </div>
+      <div class="swiper-slide">
+        <img src="pi8.webp" />
+      </div>
+    </div>
+  </div>
+
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <!-- Initialize Swiper -->
+  <script>
+    var swiper = new Swiper(".mySwiper", {
+      spaceBetween: 10,
+      slidesPerView: 4,
+      freeMode: true,
+      watchSlidesProgress: true,
+    });
+    var swiper2 = new Swiper(".mySwiper2", {
+      spaceBetween: 10,
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      thumbs: {
+        swiper: swiper,
+      },
+    });
+  </script>
+
+<br><div class="incluir">
+ <div class="container">
+            <h1>Formulario de Servicio de Transporte</h1><br>
+        <form action="https://formspree.io/f/mvgplaey" method="post" autocomplete="off">
+                <fieldset>
+                    <legend>Información Personal</legend>
+                        <div class="form-group">
+                            <label for="nombre">Nombre completo:</label>
+                            <input type="text" id="nombre" name="nombre" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="habitacion">Número de habitación:</label>
+                            <input type="text" id="habitacion" name="habitacion" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="telefono">Teléfono de contacto:</label>
+                            <input type="tel" id="telefono" name="telefono" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Correo electrónico:</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Detalles del Traslado</legend>
+                        <div class="form-group">
+                            <label>Tipo de traslado:</label>
+                            <label>
+                            <input type="radio" name="traslado" value="desde-aeropuerto" required>
+                                Desde el aeropuerto
+                            </label>
+                            <label>
+                                <input type="radio" name="traslado" value="hacia-aeropuerto">
+                                Hacia el aeropuerto
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label for="direccion-origen">Dirección de recogida:</label>
+                            <textarea name="direccion-origen" id="direccion-origen" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="direccion-destino">Dirección de destino:</label>
+                            <textarea name="direccion-destino" id="direccion-destino" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="vuelo">Número de vuelo:</label>
+                            <input type="text" id="vuelo" name="vuelo">
+                        </div>
+                        <div class="form-group">
+                            <label for="hora-llegada">Hora de llegada:</label>
+                            <input type="time" id="hora-llegada" name="hora-llegada">
+                        </div>
+                        <div class="form-group">
+                            <label for="tipo-vehiculo">Tipo de vehículo preferido:</label>
+                            <select id="tipo-vehiculo" name="tipo-vehiculo">
+                                <option value="limusina">Limusina</option>
+                                <option value="suv">Pick-up</option>
+                                <option value="coche-estandar">Microbús</option>
+                            </select>
+                        </div>
+                </fieldset>
+                        
+                        <div class="form-group">
+                           <center><input type="submit" value="Enviar Solicitud"></center> 
+                        </div>
+            </form>
+        </div>    
+    </div>        
+           
+
+     <!-- Botón de Flecha -->
+  <div id="scrollToTop" class="scrollToTop">
+    &#8593;
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+var scrollToTopBtn = document.getElementById('scrollToTop');
+
+window.addEventListener('scroll', function() {
+    if (window.scrollY > 300) {
+        scrollToTopBtn.classList.add('visible');
+    } else {
+        scrollToTopBtn.classList.remove('visible');
+    }
+});
+scrollToTopBtn.addEventListener('click', function() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});
+});
+
+</script>
+</body>
+</html>

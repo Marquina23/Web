@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="../Index.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <title>Bar</title>
+
+    <style>
+
+.swiper {
+      width: 100%;
+      height: 100%;
+      padding: 0;
+      margin: 0;
+    }
+
+    .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      background: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .swiper-slide img {
+      display: block;
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+    }
+
+    .scrollToTop {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 50px;
+        height: 50px;
+        background-color: #B68F61;
+        color: white;
+        text-align: center;
+        line-height: 1.5;
+        border-radius: 2px;
+        border-color: #FEA116;
+        font-size: 30px;
+        vertical-align: middle;
+        cursor: pointer;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transition: opacity 0.4s ease, transform 0.4s ease;
+        transform: scale(0);
+    }
+
+    .scrollToTop.visible {
+        opacity: 1;
+        transform: scale(1);
+    }
+    video{
+        border-radius: 5px;
+        width: 70%;
+        height: 90%;
+    }
+
+    </style>
+</head>
+<body>
+ <div class="menu">
+        <ion-icon name="menu-outline"></ion-icon>
+        <ion-icon name="close-outline"></ion-icon>
+    </div>
+
+    <div class="barra-lateral">
+        <div>
+            <div class="nombre-pagina">
+            <a href="../Index.html"><ion-icon name="business-sharp" id="cloud"></ion-icon></a>
+                <a href="../Index.html"><span>Inicio</span></a>
+            </div>
+    
+        </div>
+
+        <nav class="navegacion">
+            <ul>
+                <li>
+                    <a id="inbox" href="../Habitaciones/Html/Habitaciones.html">
+                       <ion-icon name="home"></ion-icon>
+                        <span>Habitaciones</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="../servicios/servicios.html">
+                        <ion-icon name="call-sharp"></ion-icon>
+                        <span>Servicios</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="../areas/areas.html">
+                        <ion-icon name="grid"></ion-icon>
+                        <span>Areas recreativas</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="../Eventos/eventos.html">
+                        <ion-icon name="heart-sharp"></ion-icon>
+                        <span>Eventos</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="../publicidad/publicidad.html">
+                        <ion-icon name="receipt"></ion-icon>
+                        <span>Ofertas Especiales</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="../Reseñas/Reseñas.html">
+                        <ion-icon name="chatbubbles-sharp"></ion-icon>
+                        <span>Reseñas</span> 
+                    </a>
+                </li>
+                <li>
+                    <a href="../Chat/Chat.html">
+                        <ion-icon name="location-sharp"></ion-icon>
+                        <span>Ubicación</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <div>
+            <div class="linea"></div>
+
+            <div class="modo-oscuro">
+                <div class="info">
+                    <ion-icon name="moon-outline"></ion-icon>
+                    <span>Modo Oscuro</span>
+                </div>
+                <div class="switch">
+                    <div class="base">
+                        <div class="circulo">
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script> 
+        
+const cloud = document.getElementById("cloud");
+const barraLateral = document.querySelector(".barra-lateral");
+const spans = document.querySelectorAll("span");
+const palanca = document.querySelector(".switch");
+const circulo = document.querySelector(".circulo");
+const menu = document.querySelector(".menu");
+const main = document.querySelector("main");
+
+menu.addEventListener("click",()=>{
+    barraLateral.classList.toggle("max-barra-lateral");
+    if(barraLateral.classList.contains("max-barra-lateral")){
+        menu.children[0].style.display = "none";
+        menu.children[1].style.display = "block";
+    }
+    else{
+        menu.children[0].style.display = "block";
+        menu.children[1].style.display = "none";
+    }
+    if(window.innerWidth<=320){
+        barraLateral.classList.add("mini-barra-lateral");
+        main.classList.add("min-main");
+        spans.forEach((span)=>{
+            span.classList.add("oculto");
+        })
+    }
+});
+
+palanca.addEventListener("click",()=>{
+    let body = document.body;
+    body.classList.toggle("dark-mode");
+    body.classList.toggle("");
+    circulo.classList.toggle("prendido");
+});
+
+cloud.addEventListener("click",()=>{
+    barraLateral.classList.toggle("mini-barra-lateral");
+    main.classList.toggle("min-main");
+    spans.forEach((span)=>{
+        span.classList.toggle("oculto");
+    });
+});
+    </script>
+    <script>
+        // Este script es opcional, pero puedes agregar lógica adicional aquí si es necesario
+        const video = document.querySelector('video');
+        video.onended = function() {
+            video.currentTime = 0; // Reinicia el video al final
+            video.play(); // Reproduce el video de nuevo
+        };
+    </script>
+
+
+  
+  <img src="../Imagenes/bar1.jpg" width="100%" height="60%">
+
+  <div style="padding-left: 20%; font-size: 20px; width: 100%; padding-right: 10px;">
+    
+ <br><h2 style="text-align: center; color: #B68F61;">Conoce más sobre nuestro bar.</h2><br>
+    <p style="color: black; padding-left: 8%;">
+        Descubre una variedad de cócteles creativos, vinos selectos y tapas gourmet en nuestro vibrante bar.
+    </p>
+</div>
+
+  <div class="todo">
+  <div class="card">
+    <div class="card-body">
+        <img src="../Imagenes/p1.jpg" alt="">
+        <div class="info">
+            <p>Sol de Medianoche es el lugar perfecto si lo que quieres es olvidar el estrés y salir de la rutina
+              con unos buenos drinks y música que te haga bailar hasta el dia siguiente
+            </p>
+           <br> <p>Podrás disfrutar de música disco, fiesta, boquitas y un excelente ambiente.</p>
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <img src="../Imagenes/p2.jfif" alt="">
+        <div class="info">
+            <p>Dale un toque especial a tu día con una refrescante bebida de nuestro bar El Sol de Medianoche.</p>
+           <br> <p>Contamos con variedad de cócteles preparados especialmente para ti.</p>
+           <p>Disfruta  todos los dias a partir de las 6:00 p.m hasta las 2:00 a.m.</p>
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <img src="../Imagenes/p3.jfif" alt="">
+        <div class="info">
+            <p>Alfredo Torres (Bartender)</p>
+            <br><br><p>Contamos con personal altamente capacitado para brindarte la mejor atención y que disfrutes de las mejores bebidas.</p>
+            
+        </div>
+    </div>
+</div>
+</div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <div style="padding-left: 20%; font-size: 20px; width: 100%; padding-right: 10px;">
+        
+       <br><br><br> <h2 style="text-align: center; color: #B68F61;">Nuestro Menú</h2><br>
+        <p style="color: black;">
+            En nuestro elegante bar, el Hotel Paraíso del Pacífico, te invitamos a relajarte y disfrutar de una amplia
+            selección de cócteles exquisitos, vinos finos y tapas sofisticadas, todo en un ambiente sofisticado y acogedor.
+        </p>
+        <br><hr color="#B68F61" style="height: 5px;"><br>
+    </div>
+   <br><br><br><br> 
+   <!-- Swiper -->
+   <div class="swiper mySwiper" style="padding-right: 15px;">
+    <div class="swiper-wrapper">
+      
+      <div class="swiper-slide"><img src="../Imagenes/bar.webp"></div>
+      <div class="swiper-slide"><img src="../Imagenes/menu.jpg"></div>
+      <div class="swiper-slide"><img src="../Imagenes/menu1.jpg"></div>
+      <div class="swiper-slide"><img src="../Imagenes/wi1.jpg"></div>
+      <div class="swiper-slide"><img src="../Imagenes/wi2.jpg"></div>
+      <div class="swiper-slide"><img src="../Imagenes/wi3.jpg"></div>
+      <div class="swiper-slide"><img src="../Imagenes/wi4.jpg"></div>
+      <div class="swiper-slide"><img src="../Imagenes/wi10.jpeg"></div>
+      <div class="swiper-slide"><img src="../Imagenes/wi11.webp"></div>
+      <div class="swiper-slide"><img src="../Imagenes/wi7.jpg"></div>
+      <div class="swiper-slide"><img src="../Imagenes/b1.jpeg"></div>
+      <div class="swiper-slide"><img src="../Imagenes/b2.avif"></div>
+      <div class="swiper-slide"><img src="../Imagenes/b3.avif"></div>
+      <div class="swiper-slide"><img src="../Imagenes/wi7.webp"></div>
+      <div class="swiper-slide"><img src="../Imagenes/wi8.jpg"></div>
+    </div>
+    <div class="swiper-pagination"></div>
+  </div>
+
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <!-- Initialize Swiper -->
+  <script>
+    var swiper = new Swiper(".mySwiper", {
+      slidesPerView: 1,
+      spaceBetween: 10,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      breakpoints: {
+        640: {
+          slidesPerView: 2,
+          spaceBetween: 20,
+        },
+        768: {
+          slidesPerView: 4,
+          spaceBetween: 40,
+        },
+        1024: {
+          slidesPerView: 5,
+          spaceBetween: 50,
+        },
+      },
+    });
+  </script>
+
+<div class="inclu">
+<div class="wrapper">
+  <h3 style="color: #B68F61;">Comentanos tu experiencia.</h3>
+  <form action="https://formspree.io/f/mvgplaey" method="post" autocomplete="off">
+    <div class="rating">
+      <input type="number" name="rating" hidden>
+      <i class='bx bx-star star' style="--i: 0;"></i>
+      <i class='bx bx-star star' style="--i: 1;"></i>
+      <i class='bx bx-star star' style="--i: 2;"></i>
+      <i class='bx bx-star star' style="--i: 3;"></i>
+      <i class='bx bx-star star' style="--i: 4;"></i>
+    </div>
+    <textarea name="opinion" cols="30" rows="5" placeholder="Tú opinión..."></textarea>
+    <div class="btn-group">
+      <button type="submit" class="btn submit">Enviar</button>
+      <button class="btn cancel">Cancelar</button>
+    </div>
+  </form>
+</div>
+</div>
+
+  <!-- Botón de Flecha -->
+  <div id="scrollToTop" class="scrollToTop">
+    &#8593;
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+var scrollToTopBtn = document.getElementById('scrollToTop');
+
+window.addEventListener('scroll', function() {
+    if (window.scrollY > 300) {
+        scrollToTopBtn.classList.add('visible');
+    } else {
+        scrollToTopBtn.classList.remove('visible');
+    }
+});
+scrollToTopBtn.addEventListener('click', function() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});
+});
+
+</script>
+
+<script>
+  const allStar = document.querySelectorAll('.rating .star')
+const ratingValue = document.querySelector('.rating input')
+
+allStar.forEach((item, idx)=> {
+	item.addEventListener('click', function () {
+		let click = 0
+		ratingValue.value = idx + 1
+
+		allStar.forEach(i=> {
+			i.classList.replace('bxs-star', 'bx-star')
+			i.classList.remove('active')
+		})
+		for(let i=0; i<allStar.length; i++) {
+			if(i <= idx) {
+				allStar[i].classList.replace('bx-star', 'bxs-star')
+				allStar[i].classList.add('active')
+			} else {
+				allStar[i].style.setProperty('--i', click)
+				click++
+			}
+		}
+	})
+})
+</script>
+
+</body>
+</html>

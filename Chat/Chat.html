@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ubicación</title>
+    <link rel="stylesheet" href="Chat.css">
+    <link rel="stylesheet" href="../Index.css">
+</head>
+<body>
+    <div class="menu">
+        <ion-icon name="menu-outline"></ion-icon>
+        <ion-icon name="close-outline"></ion-icon>
+    </div>
+
+    <div class="barra-lateral">
+        <div>
+            <div class="nombre-pagina">
+            <a href="../Index.html"><ion-icon name="business-sharp" id="cloud"></ion-icon></a>
+                <a href="../Index.html"><span>Inicio</span></a>
+            </div>
+    
+        </div>
+
+        <nav class="navegacion">
+            <ul>
+                <li>
+                    <a id="inbox" href="../Habitaciones/Html/Habitaciones.html">
+                       <ion-icon name="home"></ion-icon>
+                        <span>Habitaciones</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="../servicios/servicios.html">
+                        <ion-icon name="call-sharp"></ion-icon>
+                        <span>Servicios</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="../areas/areas.html">
+                        <ion-icon name="grid"></ion-icon>
+                        <span>Areas recreativas</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="../Eventos/eventos.html">
+                        <ion-icon name="heart-sharp"></ion-icon>
+                        <span>Eventos</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="../publicidad/publicidad.html">
+                        <ion-icon name="receipt"></ion-icon>
+                        <span>Ofertas Especiales</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="../Reseñas/Reseñas.html">
+                        <ion-icon name="chatbubbles-sharp"></ion-icon>
+                        <span>Reseñas</span> 
+                    </a>
+                </li>
+                <li>
+                    <a href="Chat.html">
+                        <ion-icon name="location-sharp"></ion-icon>
+                        <span>Ubicación</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <div>
+            <div class="linea"></div>
+
+            <div class="modo-oscuro">
+                <div class="info">
+                    <ion-icon name="moon-outline"></ion-icon>
+                    <span>Modo Oscuro</span>
+                </div>
+                <div class="switch">
+                    <div class="base">
+                        <div class="circulo">
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script> 
+        
+const cloud = document.getElementById("cloud");
+const barraLateral = document.querySelector(".barra-lateral");
+const spans = document.querySelectorAll("span");
+const palanca = document.querySelector(".switch");
+const circulo = document.querySelector(".circulo");
+const menu = document.querySelector(".menu");
+const main = document.querySelector("main");
+
+menu.addEventListener("click",()=>{
+    barraLateral.classList.toggle("max-barra-lateral");
+    if(barraLateral.classList.contains("max-barra-lateral")){
+        menu.children[0].style.display = "none";
+        menu.children[1].style.display = "block";
+    }
+    else{
+        menu.children[0].style.display = "block";
+        menu.children[1].style.display = "none";
+    }
+    if(window.innerWidth<=320){
+        barraLateral.classList.add("mini-barra-lateral");
+        main.classList.add("min-main");
+        spans.forEach((span)=>{
+            span.classList.add("oculto");
+        })
+    }
+});
+
+palanca.addEventListener("click",()=>{
+    let body = document.body;
+    body.classList.toggle("dark-mode");
+    body.classList.toggle("");
+    circulo.classList.toggle("prendido");
+});
+
+cloud.addEventListener("click",()=>{
+    barraLateral.classList.toggle("mini-barra-lateral");
+    main.classList.toggle("min-main");
+    spans.forEach((span)=>{
+        span.classList.toggle("oculto");
+    });
+});
+    </script>
+    
+
+
+    <div class="location-container">
+        <div class="map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3882.429448704952!2d-88.95948502930453!3d13.323541078413921!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f7cbac4bc933033%3A0xf6be6d9f2d727c6e!2sBlvd.%20Costa%20del%20Sol!5e0!3m2!1ses-419!2ssv!4v1725212553436!5m2!1ses-419!2ssv" width="600" height="450" style="border:0;" 
+            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <div class="description">
+            <h2>Visítanos en Las Costas del Pacífico.</h2>
+            <p>Estamos ubicados en el corazón de las costas del Pacifico que bañan a El Salvador, cerca de los principales puntos turísticos. 
+            Ven a disfrutar de nuestra oferta exclusiva y aprovecha nuestra ubicación céntrica para explorar la ciudad.</p>
+        </div>
+    </div>
+
+    <div class="chat-container" id="chat-container">
+        <div class="chat-box" id="chat-box"></div>
+        <input type="text" id="user-input" placeholder="Escribe tu pregunta aquí...">
+        <button onclick="sendMessage()">Enviar</button>
+    </div>
+    <button class="floating-btn" onclick="toggleChat()">💬</button>
+    <script>
+function sendMessage() {
+    const userInput = document.getElementById('user-input');
+    const message = userInput.value;
+    if (message.trim() === "") return;
+
+    // Mostrar el mensaje del usuario
+    displayMessage('Tú: ' + message);
+
+    // Respuesta del bot
+    const botResponse = getBotResponse(message);
+    displayMessage('Bot: ' + botResponse);
+
+    // Limpiar el input
+    userInput.value = '';
+}
+
+function displayMessage(message) {
+    const chatBox = document.getElementById('chat-box');
+    const p = document.createElement('p');
+    p.textContent = message;
+    chatBox.appendChild(p);
+    chatBox.scrollTop = chatBox.scrollHeight; // Desplazar hacia abajo
+}
+
+function getBotResponse(message) {
+    const lowerMessage = message.toLowerCase();
+    if (lowerMessage.includes('hola')) {
+        return "¡Hola! es un placer poder atenderle, somos Hotel Paraíso del Pacífico. Ponemos a tu disposición nuestra información: 1- Precios 2- Servicios 3- Horario 4-Más información ¿Cómo podemos ayudarte?";
+    } else if (lowerMessage.includes('precios')) {
+        return 'Nuestros precios comienzan desde $100 por noche.';
+    } else if (lowerMessage.includes('servicios')) {
+        return 'Ofrecemos servicio de habitación, piscina y gimnasio.';
+    } else if (lowerMessage.includes('mas informacion')) {
+      return 'Puedes contactarnos por nuestro whatsapp 6031-7556.';
+    }else if (lowerMessage.includes('Horario')) {
+      return 'Los horarios de check-in son a las 3:00 y de check-out a las 12:00.';
+    } else {
+        return 'Lo siento, no entiendo tu pregunta. Por favor, intente preguntar algo más.';
+    }
+}
+
+function toggleChat() {
+    const chatContainer = document.getElementById('chat-container');
+    chatContainer.style.display = chatContainer.style.display === 'none' ? 'flex' : 'none';
+}
+
+
+    </script>
+</body>
+</html>

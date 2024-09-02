@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Promociones</title>
+        <link rel="stylesheet" href="../Index.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+
+.promotions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+    gap: 20px;
+    width: 100%;
+}
+
+.promotion-card {
+    background-color: #dde1e9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 350px;
+    transition: transform 0.3s;
+}
+
+.promotion-card:hover {
+    transform: scale(1.05);
+}
+
+.promotion-image {
+    width: 100%;
+    height: 370px;
+    object-fit: cover;
+}
+
+.promotion-content {
+    padding: 15px;
+    text-align: center;
+}
+
+.promotion-content h2 {
+    margin: 0 0 10px;
+    font-size: 1.5em;
+    color: #B68F61;
+}
+
+.promotion-content p {
+    margin: 0 0 15px;
+    color: #030303;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 10px 20px;
+    color: #fff;
+    background-color: #B68F61;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+.scrollToTop {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 50px;
+        height: 50px;
+        background-color: #B68F61;
+        color: white;
+        text-align: center;
+        line-height: 1.5;
+        border-radius: 2px;
+        border-color: #FEA116;
+        font-size: 30px;
+        vertical-align: middle;
+        cursor: pointer;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transition: opacity 0.4s ease, transform 0.4s ease;
+        transform: scale(0);
+    }
+
+    .scrollToTop.visible {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+.cta-button:hover {
+    background-color: #525960;
+}
+.promo-intro {
+    background-color: #f9f9f9;
+    padding: 40px 20px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+.promo-intro-content {
+    max-width: 100%;
+    margin: 0;
+}
+
+.promo-intro h1 {
+    font-size: 2.5em;
+    color: #B68F61;
+    margin: 0 0 20px;
+    font-weight: bold;
+}
+
+.promo-intro p {
+    font-size: 1.2em;
+    color: #080808;
+    line-height: 1.6;
+    margin: 0;
+}
+.todo{
+    padding-left: 19%;
+}
+        </style>
+    </head>
+    <body>
+        <div class="menu">
+            <ion-icon name="menu-outline"></ion-icon>
+            <ion-icon name="close-outline"></ion-icon>
+        </div>
+    
+        <div class="barra-lateral">
+            <div>
+                <div class="nombre-pagina">
+                <a href="../Index.html"><ion-icon name="business-sharp" id="cloud"></ion-icon></a>
+                    <a href="../Index.html"><span>Inicio</span></a>
+                </div>
+        
+            </div>
+    
+            <nav class="navegacion">
+                <ul>
+                    <li>
+                        <a id="inbox" href="../Habitaciones/Html/Habitaciones.html">
+                           <ion-icon name="home"></ion-icon>
+                            <span>Habitaciones</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../servicios/servicios.html">
+                            <ion-icon name="call-sharp"></ion-icon>
+                            <span>Servicios</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../areas/areas.html">
+                            <ion-icon name="grid"></ion-icon>
+                            <span>Areas recreativas</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../Eventos/eventos.html">
+                            <ion-icon name="heart-sharp"></ion-icon>
+                            <span>Eventos</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="publicidad.html">
+                            <ion-icon name="receipt"></ion-icon>
+                            <span>Ofertas Especiales</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../Reseñas/Reseñas.html">
+                            <ion-icon name="chatbubbles-sharp"></ion-icon>
+                            <span>Reseñas</span> 
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../Chat/Chat.html">
+                            <ion-icon name="location-sharp"></ion-icon>
+                            <span>Ubicación</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+    
+            <div>
+                <div class="linea"></div>
+    
+                <div class="modo-oscuro">
+                    <div class="info">
+                        <ion-icon name="moon-outline"></ion-icon>
+                        <span>Modo Oscuro</span>
+                    </div>
+                    <div class="switch">
+                        <div class="base">
+                            <div class="circulo">
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+        </div>
+    
+        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+        <script> 
+            
+    const cloud = document.getElementById("cloud");
+    const barraLateral = document.querySelector(".barra-lateral");
+    const spans = document.querySelectorAll("span");
+    const palanca = document.querySelector(".switch");
+    const circulo = document.querySelector(".circulo");
+    const menu = document.querySelector(".menu");
+    const main = document.querySelector("main");
+    
+    menu.addEventListener("click",()=>{
+        barraLateral.classList.toggle("max-barra-lateral");
+        if(barraLateral.classList.contains("max-barra-lateral")){
+            menu.children[0].style.display = "none";
+            menu.children[1].style.display = "block";
+        }
+        else{
+            menu.children[0].style.display = "block";
+            menu.children[1].style.display = "none";
+        }
+        if(window.innerWidth<=320){
+            barraLateral.classList.add("mini-barra-lateral");
+            main.classList.add("min-main");
+            spans.forEach((span)=>{
+                span.classList.add("oculto");
+            })
+        }
+    });
+    
+    palanca.addEventListener("click",()=>{
+        let body = document.body;
+        body.classList.toggle("dark-mode");
+        body.classList.toggle("");
+        circulo.classList.toggle("prendido");
+    });
+    
+    cloud.addEventListener("click",()=>{
+        barraLateral.classList.toggle("mini-barra-lateral");
+        main.classList.toggle("min-main");
+        spans.forEach((span)=>{
+            span.classList.toggle("oculto");
+        });
+    });
+        </script>
+
+        <div class="todo">
+        <section class="promo-intro">
+            <div class="promo-intro-content">
+                <h1>Promociones</h1>
+                <p>Para sus vacaciones en familia o viajes de negocios, contamos con las habitaciones más amplias y confortables de la ciudad. Descanse y disfrute de nuestros mejores servicios durante su estadía en el hotel.</p>
+            </div><br>
+            <h1>Ofertas Especiales</h1>
+        </section>
+        
+        <section class="promotions">
+            <div class="promotion-card">
+                <img src="7.jpg" alt="Escapada de Fin de Semana" class="promotion-image">
+                <div class="promotion-content">
+                    <h2>Escapada de Fin de Semana</h2>
+                    <p>Disfruta de un 20% de descuento en estancias de viernes a domingo. ¡No te lo pierdas!</p>
+                    <a href="../Habitaciones/Html/HuSuit.html" class="cta-button">Reserva Ahora</a>
+                </div>
+            </div>
+            <div class="promotion-card">
+                <img src="5.jpg" alt="Paquete Familiar" class="promotion-image">
+                <div class="promotion-content">
+                    <h2>Paquete Familiar</h2>
+                    <p>Incluye entradas a atracciones locales, desayuno gratuito y actividades para los más pequeños.</p>
+                    <a href="../Habitaciones/Html/HabitaFa1.html" class="cta-button">Más Información</a>
+                </div>
+            </div>
+            <div class="promotion-card">
+                <img src="6.jpg" alt="Paquete Romántico" class="promotion-image">
+                <div class="promotion-content">
+                    <h2>Paquete Romántico</h2>
+                    <p>Una noche mágica con cena a la luz de las velas y masaje en pareja. ¡Perfecto para una escapada romántica!</p>
+                    <a href="../Habitaciones/Html/Suit3.html" class="cta-button">Descubre Más</a>
+                </div>
+            </div>
+            <div class="promotion-card">
+                <img src="2.png" alt="Desayuno Promocional" class="promotion-image">
+                <div class="promotion-content">
+                    <h2>Desayuno con Descuento</h2>
+                    <p>Disfruta de un delicioso desayuno gratuito al reservar una habitación. ¡Perfecto para empezar el día con energía!</p>
+                    <a href="../Habitaciones/Html/Huespedes.html" class="cta-button">Descubre Más</a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Botón de Flecha -->
+
+<div id="scrollToTop" class="scrollToTop">
+    &#8593;
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+var scrollToTopBtn = document.getElementById('scrollToTop');
+
+window.addEventListener('scroll', function() {
+    if (window.scrollY > 300) {
+        scrollToTopBtn.classList.add('visible');
+    } else {
+        scrollToTopBtn.classList.remove('visible');
+    }
+});
+scrollToTopBtn.addEventListener('click', function() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});
+});
+</script>
+    </body>
+</html>
